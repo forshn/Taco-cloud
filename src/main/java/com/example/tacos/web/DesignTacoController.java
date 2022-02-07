@@ -1,8 +1,8 @@
-package com.example.tacocloud.controllers;
+package com.example.tacos.web;
 
-import com.example.tacocloud.domain.Ingredient;
-import com.example.tacocloud.domain.Ingredient.Type;
-import com.example.tacocloud.domain.Taco;
+import com.example.tacos.Ingredient;
+import com.example.tacos.Ingredient.Type;
+import com.example.tacos.Taco;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
@@ -50,8 +51,10 @@ public class DesignTacoController {
 
     }
 
-    private Object filterByType(List<Ingredient> ingredients, Type type) {
-        return ingredients.stream().filter(a -> a.getType().name().equals(type.name()));
+    private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
+        return ingredients.stream()
+                .filter(a -> a.getType().name().equals(type.name()))
+                .collect(Collectors.toList());
     }
 }
 

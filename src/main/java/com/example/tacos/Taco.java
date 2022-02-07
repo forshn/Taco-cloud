@@ -1,4 +1,4 @@
-package com.example.tacocloud.domain;
+package com.example.tacos;
 
 import lombok.Data;
 
@@ -7,5 +7,5 @@ import java.util.List;
 @Data
 public class Taco {
     private String name;
-    private List ingredients;
+    private List<Ingredient> ingredients;
 }

@@ -1,4 +1,4 @@
-package com.example.tacocloud.domain;
+package com.example.tacos;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
