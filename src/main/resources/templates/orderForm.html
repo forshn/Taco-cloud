@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Taco Cloud</title>
-    <link rel="stylesheet" th:href="@{/styles.css}" />
+    <link rel="stylesheet" th:href="@{/static/styles.css}" />
 </head>
 <body>
 <form method="POST" th:action="@{/orders}" th:object="${order}">
@@ -34,6 +34,10 @@
     <h3>Here's how I'll pay...</h3>
     <label for="ccNumber">Credit Card #: </label>
     <input type="text" th:field="*{ccNumber}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ccNumber')}"
+          th:errors="*{ccNumber}">CC Num Error</span>
+
     <br/>
     <label for="ccExpiration">Expiration: </label>
     <input type="text" th:field="*{ccExpiration}"/>
